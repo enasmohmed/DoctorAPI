@@ -1,0 +1,13 @@
+
+{% block body %}
+<main>
+    <div class="container mynav">
+        <form method="post" action="{% url 'accounts:login' %}">
+        {% csrf_token %}
+         {{ form.as_p }}
+        <button type="submit">Login</button>
+        </form>
+
+    </div>
+</main>
+{% endblock body %}

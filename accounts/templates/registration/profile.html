@@ -1,0 +1,51 @@
+{% load static %}
+{% block body %}
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+           {% if profile.image %}
+               <img src="{{ profile.image.url }}" class="img-fluid" alt="">
+           {% else %}
+               <img src="{% static 'site_static/img/default.user.png' %}" class="img-fluid" alt="" style="width: 40% !important;">
+           {% endif %}
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+             <p class="lead font-weight-bold">Name: {{profile.user}}</p>
+            <p class="lead">
+                <p>Email: {{profile.user.email}}</p>
+                <p>Address: {{profile.address}}</p>
+                <p>Join Date: {{profile.join_date}}</p>
+           </p>
+
+
+          </div>
+          <!--Content-->
+           </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+
+
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+{% endblock body %}

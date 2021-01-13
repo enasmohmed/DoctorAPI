@@ -1,0 +1,24 @@
+{% load static %}
+{% block body %}
+
+    {% if request.user.is_authenticated %}
+     Hi, {{ request.user.username }}<br/>
+      <a href="{% url 'accounts:logout' %}"> Logout</a>
+
+    {% else %}
+      <a href="{% url 'accounts:login' %}">Login</a>
+      <a href="{% url 'accounts:signup' %}">Register</a>
+    {% endif %}
+<br><hr/>
+
+<a href="http://127.0.0.1:8000/api/doctors/"> Doctors API</a><br/><br/>
+<a href="http://127.0.0.1:8000/api/specialty/"> Specialty API</a><br/><br/>
+<a href="http://127.0.0.1:8000/api/sessions/"> Sessions API</a><br/><br/>
+
+<a href="{% url 'doctors:sessions_details'  %}" ><h2>Sessions</h2></a><br>
+<a href="{% url 'doctors:create_session'  %}" ><h2>Book Doctor Sessions</h2></a><br>
+
+<hr/>
+<h1><a href="{% url 'doctors:doctor_list'  %}"> Doctors</a></h1>
+
+{% endblock body%}

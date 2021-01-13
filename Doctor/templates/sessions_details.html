@@ -1,0 +1,16 @@
+{% load static %}
+{% block body %}
+
+<h2>Sessions </h2>
+{% for sessions in sessions_details %}
+    Session Number: {{ sessions.id }} <br><br/>
+    Name: {{ sessions.name }} <br><br/>
+    Title: {{ sessions.title }} <br><br/>
+    Price: {{ sessions.price }} EGP <br><br/>
+    Data: {{ sessions.date| date:"Y-m-d" }} <br><br/>
+    Start Time: {{ sessions.start_time }}<br><br/>
+    End Time: {{ sessions.end_time }}
+<hr>
+{% endfor %}
+
+{% endblock body %}
