@@ -13,25 +13,28 @@ from Doctor.models import Session, Doctor, Specialty
 from Doctor.serializer import DoctorSerializer, SpecialtySerializer, SessionSerializer
 
 
+
+
+
+# function sessions list
+def session_list(request):
+    session_list = Session.objects.all()
+    doctors = User.objects.all()
+    return render(request, 'home.html', {'session_list': session_list, 'doctors': doctors})
+
+
+
+# function sessions details
+def sessions_details(request):
+    sessions_details = Session.objects.all()
+    return render(request,'sessions_details.html', {'sessions_details': sessions_details})
+
+
+# function doctor list
 def doctor_list(request):
     doctor_list = Doctor.objects.all()
     specialty = Specialty.objects.all()
     return render(request, 'doctor_list.html', {'doctor_list': doctor_list, 'specialty':specialty})
-
-
-
-
-# page sessions list
-def session_list(request):
-    session_list = Session.objects.all()
-    doctors = User.objects.all()
-    return render(request, 'session_list.html', {'session_list': session_list, 'doctors': doctors})
-
-
-# page sessions details
-def sessions_details(request):
-    sessions_details = Session.objects.all()
-    return render(request,'sessions_details.html', {'sessions_details': sessions_details})
 
 
 
@@ -49,7 +52,7 @@ def create_session(request):
             form = UserSessionsForm()
         return render(request, 'create_session.html', {'form': form})
     else:
-     return redirect('sessions')
+     return redirect('doctors:session_home')
 
 
 

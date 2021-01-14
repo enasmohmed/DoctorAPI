@@ -3,8 +3,18 @@
 
 {% for sepec in specialty %}
   Doctor:  {{ sepec.sep }}<br>
-  specialty:  {{ sepec.name_sp }}<br><hr>
+  Specialty: {{ sepec.name_sp }}<br><br/><br/>
 {% endfor %}
 
+
+{% for doctor in doctor_list %}
+  Doctor: {{ doctor.name }} <br>
+  Specialty: {{ doctor.Specialty.name_sp }}<br>
+  Session: {{ doctor.sessions }}<br>
+  Price:  {{ doctor.price }}<br>
+  Weekday:  {{ doctor.weekday }}<br>
+  From Hour:  {{ doctor.from_hour }}<br>
+  To Hour:  {{ doctor.to_hour }}<br><hr/>
+{% endfor %}
 
 {% endblock %}
